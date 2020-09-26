@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </h:head>
+    <h:body>
+        <h:form id="calculadora_form">
+            <p:panelGrid columns="2">
+            	<h:outputText value="Conjunto de números"/>
+                <p:inputText binding="#{input}"></p:inputText>
+                <p:commandButton update="calculadora_form" actionListener="#{calculadoraBean.setNumbers(input.value)}" value="Ingresar"></p:commandButton>
+				<p:outputLabel value="Datos ingresados: #{calculadoraBean.getNumbers()}"></p:outputLabel>
+				<h:outputText value="Promedio"/>
+				<h:outputText value="#{calculadoraBean.getMean()}"/>
+				<h:outputText value="Moda"/>
+				<h:outputText value="#{calculadoraBean.getMode()}"/>
+				<h:outputText value="Varianza"/>
+				<h:outputText value="#{calculadoraBean.getVariance()}"/>
+				<h:outputText value="Desviación Estándar"/>
+				<h:outputText value="#{calculadoraBean.getStandardDeviation()}"/>
+                <p:commandButton update="calculadora_form" actionListener="#{calculadoraBean.restart()}" value="Reiniciar"></p:commandButton>
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</html> 
